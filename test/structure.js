@@ -21,11 +21,8 @@ module.exports = function (gulp, plugins) {
 
         // Component SASS files
         var HelpersComponentSASS = DirComponentsSASS+'helper.scss',/*clear fix*/
-            IconComponentSASS = DirComponentsSASS+'icon.scss',
-            ButtonComponentSASS = DirComponentsSASS+'button.scss',
-            LabelComponentSASS = DirComponentsSASS+'label.scss',
             TypographyComponentSASS = DirComponentsSASS+'typography.scss',
-            FormComponentSASS = DirComponentsSASS+'form.scss';
+            ShortcodesComponentSASS = DirComponentsSASS+'shortcodes.scss';
 
 
         // Reference SASS files
@@ -54,11 +51,8 @@ module.exports = function (gulp, plugins) {
         // Check components SASS
         gulp.src([
             HelpersComponentSASS,
-            IconComponentSASS,
-            ButtonComponentSASS,
-            LabelComponentSASS,
+            ShortcodesComponentSASS,
             TypographyComponentSASS,
-            FormComponentSASS
         ]).pipe(expect({ checkRealFile: true, verbose: false }, DirComponentsSASS+'*.scss'));
 
         // Check references SASS
@@ -77,7 +71,7 @@ module.exports = function (gulp, plugins) {
 
         // Verify main SASS dependencies
         gulp.src([MainSASS]).pipe(expect({"sass/main.scss":
-            '@import "compass/reset", "../vendor/breakpoint-sass/stylesheets/breakpoint","components/button","components/form","components/helper","components/icon","components/label","components/typography";'
+            '@import "compass/reset", "../vendor/breakpoint-sass/stylesheets/breakpoint","components/shortcodes","components/helper","components/typography";'
          }));
     };
 };
