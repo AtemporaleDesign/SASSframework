@@ -1,0 +1,93 @@
+@import "true", "../vendor/breakpoint-sass/stylesheets/_breakpoint";
+
+// Resolutions vars
+$xxsD: 0px 300px;$res-1: $xxsD;$xsD: 301px 510px;$res-2: $xsD;$sD: 511px 738px;$res-3: $sD;$mD: 739px 994px;$res-4: $mD;$lD: 995px 1360px;$res-5: $lD;
+
+// Define dimention
+$text-size-base:16px;
+$size-lineheight-ratio:1.333333;
+@mixin text-simple-format($size){font-size:$size;line-height:$size * $size-lineheight-ratio;}
+@mixin text-custom-format($size,$line-height){font-size:$size;line-height:$line-height;}
+
+@include test-module('Utilities') {
+
+  @include test('Simple text formating [function]') {
+    @include assert('Text formating with 1 value.') {
+      @include input {
+        @include text-simple-format($text-size-base)
+      }
+      @include expect {
+        font-size:16px;
+        line-height:21.33333px;
+      }
+    }
+  }
+
+
+
+  @include test('Custom text formating [function]') {
+    @include assert('Text formating with 2 value.') {
+      @include input {
+
+        @include text-custom-format($text-size-base, $text-size-base + 6)
+      }
+      @include expect {
+        font-size:16px;
+        line-height:22px;
+      }
+    }
+  }
+
+
+
+  @include test('Simple response text [function]') {
+    @include assert('Text formating with 1 value for 3 different resolution.') {
+      @include input {
+        @include text-simple-format($text-size-base);
+
+        @each $resolution, $text-format in (
+                $res-1: $text-size-base - 5,
+                $res-2: $text-size-base - 4,
+                $res-3: $text-size-base - 3,
+                $res-4: $text-size-base - 2,
+                $res-5: $text-size-base - 1
+        )
+        {
+          @include breakpoint($resolution) {
+            @include text-simple-format($text-format);;
+          }
+        }
+      }
+      @include expect {
+        font-size:16px;
+        line-height:21.33333px;
+
+        @media (min-width: 0px) and (max-width: 300px) {
+          font-size:11px;
+          line-height:14.66666px;
+        }
+        @media (min-width: 301px) and (max-width: 510px) {
+          font-size:12px;
+          line-height:16.0px;
+        }
+        @media (min-width: 511px) and (max-width: 738px) {
+          font-size:13px;
+          line-height:17.33333px;
+        }
+        @media (min-width: 739px) and (max-width: 994px) {
+          font-size:14px;
+          line-height:18.66666px;
+        }
+        @media (min-width: 995px) and (max-width: 1360px) {
+          font-size:15px;
+          line-height:20.0px;
+        }
+      }
+    }
+  }
+}
+
+// Optionally show summary report in CSS and/or the command line:
+// - If you use Mocha, reporting to the command line is automatic.
+// - if you use true-cli, report(terminal) is required for output.
+@include report;

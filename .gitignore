@@ -1,8 +1,7 @@
 /.idea
 /.sass-cache
-/dist/html-test
+/dist/*
 /node_modules
-/temp
-/test
+/temp/*d
 /vendor
 

@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  color: #f00;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.layer1 {
+  z-index: 1;
+}
+
+.layer2 {
+  z-index: 9;
+}
+
+.layer3 {
+  z-index: 11;
+}
+
+.layer4 {
+  z-index: 99;
+}
+
+.layer5 {
+  z-index: 111;
+}
+
+.layer6 {
+  z-index: 999;
+}
+
+.layer7 {
+  z-index: 1111;
+}
+
+.layer8 {
+  z-index: 9999;
+}
+
+.layer9 {
+  z-index: 11111;
+}
+
+.layer10 {
+  z-index: 99999;
+}
+
+.layer11 {
+  z-index: 111111;
+}
+
+.layer12 {
+  z-index: 999999;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-smallcaps {
+  font-variant: small-caps;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
+.title-big {
+  font-size: 48px;
+  line-height: 63.99998px;
+}
+
+.title-medium {
+  font-size: 28px;
+}
+
+.title-small {
+  font-size: 28px;
+}
+
+#foo {
+  content: 'No Media Queries';
+}
+@media (min-width: 543px) {
+  #foo {
+    content: 'Basic Media Query';
+  }
+}
+@media (min-width: 456px) and (max-width: 794px) {
+  #foo {
+    content: 'Paired Media Query';
+  }
+}
