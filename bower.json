@@ -1,0 +1,16 @@
+{
+  "name": "atemporaleNEXT",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Alessandro Traversi"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.0",
+    "bower-compass-core": "^1.0.2"
+  }
+}

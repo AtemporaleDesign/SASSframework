@@ -1,0 +1,168 @@
+// Component Module - Typography
+
+// Imports responsive var
+@import "../references/response", "helper";
+
+// Font declarations
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900);
+body{font-family: 'Source Sans Pro', sans-serif; font-weight: 400;}
+
+// Base rules
+$text-size-base:16px;
+$size-lineheight-ratio:1.333333;
+
+// Text format mixins
+@mixin text-simple-format($size){
+  font-size:$size;
+  line-height:$size * $size-lineheight-ratio;
+}
+@mixin text-custom-format($size,$line-height){
+  font-size:$size;
+  line-height:$line-height;
+}
+
+
+/*
+** Value for title class
+*/
+
+$title-big-size: $text-size-base + 32; // title big
+$title-medium-size: $text-size-base + 14; // title medium
+$title-small-size: $text-size-base + 4; // title small
+
+
+
+/*
+** Title class
+*/
+
+
+.title-big{
+  @include text-simple-format($title-big-size);
+
+  @each $resolution, $text-format in (
+    $res-1: $title-big-size - 5, // verify
+    $res-2: $title-big-size - 4, // verify
+    $res-3: $title-big-size - 3, // verify
+    $res-4: $title-big-size - 2, // verify
+    $res-5: $title-big-size - 1 // verify
+    ) {
+      @include breakpoint($resolution) {
+        @include text-simple-format($text-format);;
+      }
+  }
+}
+
+.title-medium{
+  @include text-simple-format($title-medium-size);
+
+  @each $resolution, $text-format in (
+          $res-1: $title-medium-size - 5, // verify
+          $res-2: $title-medium-size - 4, // verify
+          $res-3: $title-medium-size - 3, // verify
+          $res-4: $title-medium-size - 2, // verify
+          $res-5: $title-medium-size - 1 // verify
+  ) {
+    @include breakpoint($resolution) {
+      @include text-simple-format($text-format);;
+    }
+  }
+}
+
+.title-small{
+  @include text-simple-format($title-small-size);
+
+  @each $resolution, $text-format in (
+          $res-1: $title-small-size - 5, // verify
+          $res-2: $title-small-size - 4, // verify
+          $res-3: $title-small-size - 3, // verify
+          $res-4: $title-small-size - 2, // verify
+          $res-5: $title-small-size - 1 // verify
+  ) {
+    @include breakpoint($resolution) {
+      @include text-simple-format($text-format);;
+    }
+  }
+}
+
+/*
+** Value for subtitle element <span>
+*/
+
+$K-subtitle: 0.8; // any subtitle // verify
+
+/*
+** Title class
+*/
+
+.title-big, .title-medium, .title-small{
+  span{
+    font-size: inherit * $K-subtitle;
+    line-height: inherit * $K-subtitle;
+    @extend .italic;
+  }
+}
+
+
+/*
+** Value for paragraph class
+*/
+
+$paragraph-big-size: $text-size-base + 12; // title big // verify
+$paragraph-medium-size: $text-size-base + 8; // title medium // verify
+$paragraph-small-size: $text-size-base + 2; // title small // verify
+
+
+
+/*
+** Paragraph class
+*/
+
+
+.paragraph-big{
+  @include text-simple-format($paragraph-big-size);
+
+  @each $resolution, $text-format in (
+          $res-1: $paragraph-big-size - 5, // verify
+          $res-2: $paragraph-big-size - 4, // verify
+          $res-3: $paragraph-big-size - 3, // verify
+          $res-4: $paragraph-big-size - 2, // verify
+          $res-5: $paragraph-big-size - 1 // verify
+  ) {
+    @include breakpoint($resolution) {
+      @include text-simple-format($text-format);;
+    }
+  }
+}
+
+.paragraph-medium{
+  @include text-simple-format($paragraph-medium-size);
+
+  @each $resolution, $text-format in (
+          $res-1: $paragraph-medium-size - 5, // verify
+          $res-2: $paragraph-medium-size - 4, // verify
+          $res-3: $paragraph-medium-size - 3, // verify
+          $res-4: $paragraph-medium-size - 2, // verify
+          $res-5: $paragraph-medium-size - 1 // verify
+  ) {
+    @include breakpoint($resolution) {
+      @include text-simple-format($text-format);;
+    }
+  }
+}
+
+.paragraph-small{
+  @include text-simple-format($paragraph-small-size);
+
+  @each $resolution, $text-format in (
+          $res-1: $paragraph-small-size - 5, // verify
+          $res-2: $paragraph-small-size - 4, // verify
+          $res-3: $paragraph-small-size - 3, // verify
+          $res-4: $paragraph-small-size - 2, // verify
+          $res-5: $paragraph-small-size - 1 // verify
+  ) {
+    @include breakpoint($resolution) {
+      @include text-simple-format($text-format);;
+    }
+  }
+}

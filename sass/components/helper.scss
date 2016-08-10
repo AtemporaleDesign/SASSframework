@@ -1,0 +1,69 @@
+// Component Module - Helper
+
+// Define dimention
+@mixin size($width,$height){
+  height: $height; width: $width;
+}
+
+// Define circle radius
+@mixin circle($radius){
+  width: $radius;
+  height: $radius;
+  border-radius: $radius/2;
+}
+
+// Center on X axe (require any value for "position")
+@mixin X-centered($width){
+  width: $width;
+  left: 50%;
+  margin-left: -($width/2);
+}
+
+// Center on Y axe (require any value for "position")
+@mixin Y-centered($height){
+  height:$height;
+  top:50%;
+  margin-top: -($height/2);
+}
+
+// Floating status
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+
+// Position status
+.relative{position:relative;}
+.absolute{position:absolute;}
+.fixed{position:fixed;}
+
+// Display status
+.inline{display: inline;}
+.block{display: block;}
+.inline-block{display: inline-block;}
+
+// Layer used
+.layer1{z-index: 1;}
+.layer2{z-index: 9;}
+.layer3{z-index: 11;}
+.layer4{z-index: 99;}
+.layer5{z-index: 111;}
+.layer6{z-index: 999;}
+.layer7{z-index: 1111;}
+.layer8{z-index: 9999;}
+.layer9{z-index: 11111;}
+.layer10{z-index: 99999;}
+.layer11{z-index: 111111;}
+.layer12{z-index: 999999;}
+
+// Text format
+.bold{font-weight: bold;}
+.italic{font-style: italic;}
+.underline{text-decoration: underline;}
+.text-smallcaps{font-variant: small-caps;}
+.text-uppercase{text-transform: uppercase;}
+
+// Text orientation
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.text-justify{text-align: justify;}

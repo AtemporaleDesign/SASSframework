@@ -1,0 +1,30 @@
+// Reference Module - Response
+
+/*
+  *
+  // assume min-width (by default) if only a number => $high-tide: 500px;
+  // set min-width/max-width if both values are numbers => $ex-presidents: 600px 800px;
+  // if one value is a string, assume a feature/value pair => $surfboard-width: max-width 1000px;
+  // string tests together within parentheses, assume each item is a feature value pair => $surfboard-height: (min-height 1000px) (orientation portrait);
+  *
+*/
+
+// Resolutions vars
+$xxsD: 0px 300px;
+$res-1: $xxsD; // loop name
+
+$xsD: 301px 510px;
+$res-2: $xsD; // loop name
+
+$sD: 511px 738px;
+$res-3: $sD; // loop name
+
+$mD: 739px 994px;
+$res-4: $mD; // loop name
+
+$lD: 995px 1360px;
+$res-5: $lD; // loop name
+
+$xlD: 1361px
+
+
