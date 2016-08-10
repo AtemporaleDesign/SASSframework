@@ -8,6 +8,8 @@ $text-size-base:16px;
 $size-lineheight-ratio:1.333333;
 @mixin text-simple-format($size){font-size:$size;line-height:$size * $size-lineheight-ratio;}
 @mixin text-custom-format($size,$line-height){font-size:$size;line-height:$line-height;}
+$K-subtitle: 0.8; // any subtitle // verify
+@mixin calc-subtitle($var){ font-size:$var * $K-subtitle; line-height:$var * $size-lineheight-ratio * $K-subtitle;}
 
 @include test-module('Utilities') {
 
@@ -44,6 +46,9 @@ $size-lineheight-ratio:1.333333;
     @include assert('Text formating with 1 value for 3 different resolution.') {
       @include input {
         @include text-simple-format($text-size-base);
+        span{
+          @include calc-subtitle($text-size-base);
+        }
 
         @each $resolution, $text-format in (
                 $res-1: $text-size-base - 5,
@@ -54,33 +59,60 @@ $size-lineheight-ratio:1.333333;
         )
         {
           @include breakpoint($resolution) {
-            @include text-simple-format($text-format);;
+            @include text-simple-format($text-format);
+            span{
+              @include calc-subtitle($text-format);
+            }
           }
         }
       }
       @include expect {
         font-size:16px;
         line-height:21.33333px;
+        span{
+          font-size:12.8px;
+          line-height:17.06666px;
+        }
 
         @media (min-width: 0px) and (max-width: 300px) {
           font-size:11px;
           line-height:14.66666px;
+          span{
+            font-size:8.8px;
+            line-height:11.73333px;
+          }
         }
         @media (min-width: 301px) and (max-width: 510px) {
           font-size:12px;
           line-height:16.0px;
+          span{
+            font-size:9.6px;
+            line-height:12.8px;
+          }
         }
         @media (min-width: 511px) and (max-width: 738px) {
           font-size:13px;
           line-height:17.33333px;
+          span{
+            font-size:10.4px;
+            line-height:13.86666px;
+          }
         }
         @media (min-width: 739px) and (max-width: 994px) {
           font-size:14px;
           line-height:18.66666px;
+          span{
+            font-size:11.2px;
+            line-height:14.93333px;
+          }
         }
         @media (min-width: 995px) and (max-width: 1360px) {
           font-size:15px;
           line-height:20.0px;
+          span{
+            font-size:12px;
+            line-height:16.0px;
+          }
         }
       }
     }

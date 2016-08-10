@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     compass = require('gulp-compass'),
     path = require('path'),
     mocha = require('gulp-mocha'),
+    bower = require('gulp-bower'),
     plugins = require('gulp-load-plugins')();
 
 // compose gulp file and tests project structure
@@ -29,8 +30,9 @@ var sassDir           = './sass/',
     sassMainFiles     = sassDir+'*.scss',
     sassPageFiles     = sassDir+'smallest/*.scss',
     tempMapDir        = './temp/',
-    cssDir            = './dist/css';
-    imgDir            = './dist/img';
+    cssDir            = './dist/css',
+    imgDir            = './dist/img',
+    bowerDir          = './vendor/';
 
 /*
  |--------------------------------------------------------------------------
@@ -65,4 +67,14 @@ gulp.task('sass', function () {
  */
 gulp.task('on', function () {
     gulp.watch(sassDir+'**/*.scss', ['sass']);
+});
+
+
+/*
+ |--------------------------------------------------------------------------
+ | Bower update plugins task
+ |--------------------------------------------------------------------------
+ */
+gulp.task('bower', function() {
+    return bower({directory:bowerDir, cmd:'update'})
 });

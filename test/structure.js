@@ -3,7 +3,11 @@ module.exports = function (gulp, plugins) {
         var expect = require('gulp-expect-file');
 
         // Directories
-        var DirCompass = 'vendor/bower-compass-core/compass/stylesheets/',
+        var DirPlugins = 'vendor/',
+            DirCompass = DirPlugins+'bower-compass-core/compass/stylesheets/',
+            DirBreakpoint = DirPlugins+'breakpoint-sass/',
+            DirFontAwesome = DirPlugins+'font-awesome/',
+            DirGlyphicons = DirPlugins+'sass-bootstrap-gliphicons/',
             DirSASS = 'sass/',
             DirComponentsSASS = DirSASS+'components/',
             DirReferencesSASS = DirSASS+'references/',
@@ -36,14 +40,19 @@ module.exports = function (gulp, plugins) {
             HeaderSectionSASS = DirSectionsSASS+'header.scss',
             FooterSectionSASS = DirSectionsSASS+'footer.scss';
 
-        // Check *.min.css tests
+        // Check *.min.css files
         gulp.src([MainMinCSS, SmallestMinCSS]).pipe(expect({ checkRealFile: true, verbose: false }, DirCSS+'**/*.css'));
 
-        // Check *.css tests
+        // Check *.css files
         gulp.src([MainCSS, SmallestCSS]).pipe(expect({ checkRealFile: true, verbose: false }, DirTemp+'**/*.css'));
 
-        // Check compass test
-        gulp.src([DirCompass+'**/*.scss']).pipe(expect({ checkRealFile: true, verbose: false }, DirCompass+'**/*.scss'));
+        // Check plugins
+        gulp.src([
+            DirCompass+'**/*.scss',
+            DirBreakpoint+'**/*.scss',
+            DirFontAwesome+'**/*.scss',
+            DirGlyphicons+'**/*.scss'
+        ]).pipe(expect({ checkRealFile: true, verbose: false }, DirPlugins+'**/*.scss'));
 
         // Check main & smallest SASS
         gulp.src([MainSASS, SmallestSASS]).pipe(expect({ checkRealFile: true, verbose: false }, DirSASS+'**/*.scss'));
@@ -52,7 +61,7 @@ module.exports = function (gulp, plugins) {
         gulp.src([
             HelpersComponentSASS,
             ShortcodesComponentSASS,
-            TypographyComponentSASS,
+            TypographyComponentSASS
         ]).pipe(expect({ checkRealFile: true, verbose: false }, DirComponentsSASS+'*.scss'));
 
         // Check references SASS

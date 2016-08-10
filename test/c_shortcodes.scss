@@ -1,0 +1,24 @@
+@import "true", "../vendor/breakpoint-sass/stylesheets/_breakpoint";
+
+
+
+@include test-module('Utilities') {
+
+  @include test('Simple text formating [function]') {
+    @include assert('Text formating with 1 value.') {
+      @include input {
+        @include text-simple-format($text-size-base)
+      }
+      @include expect {
+        font-size:16px;
+        line-height:21.33333px;
+      }
+    }
+  }
+
+}
+
+// Optionally show summary report in CSS and/or the command line:
+// - If you use Mocha, reporting to the command line is automatic.
+// - if you use true-cli, report(terminal) is required for output.
+@include report;
