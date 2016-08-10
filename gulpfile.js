@@ -68,7 +68,9 @@ gulp.task('sass', function () {
 gulp.task('on', function () {
     gulp.watch(sassDir+'**/*.scss', ['sass']);
 });
-
+gulp.task('testing', function () {
+    gulp.watch(['test/*',sassDir+'**/*.scss'], ['verify_init','tests','sass']);
+});
 
 /*
  |--------------------------------------------------------------------------

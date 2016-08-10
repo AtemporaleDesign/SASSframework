@@ -56,6 +56,145 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.layer1 {
+  z-index: 1;
+}
+
+.layer2 {
+  z-index: 9;
+}
+
+.layer3 {
+  z-index: 11;
+}
+
+.layer4 {
+  z-index: 99;
+}
+
+.layer5 {
+  z-index: 111;
+}
+
+.layer6 {
+  z-index: 999;
+}
+
+.layer7 {
+  z-index: 1111;
+}
+
+.layer8 {
+  z-index: 9999;
+}
+
+.layer9 {
+  z-index: 11111;
+}
+
+.layer10 {
+  z-index: 99999;
+}
+
+.layer11 {
+  z-index: 111111;
+}
+
+.layer12 {
+  z-index: 999999;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-smallcaps {
+  font-variant: small-caps;
+}
+
+.text-uppercase, .btn, .btn-yellow, .btn-blue {
+  text-transform: uppercase;
+}
+
+.text-center, .btn, .btn-yellow, .btn-blue {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/*
+$grey-01 = #191919;
+$grey-02 = #333;
+$grey-03 = #4c4c4c;
+$grey-04 = #666;
+$grey-05 = ;
+$grey-06 = #999;
+$grey-07 = ;
+$grey-08 = #ccc;
+$grey-09 = ;
+*/
+/*
+  *
+  // assume min-width (by default) if only a number => $high-tide: 500px;
+  // set min-width/max-width if both values are numbers => $ex-presidents: 600px 800px;
+  // if one value is a string, assume a feature/value pair => $surfboard-width: max-width 1000px;
+  // string tests together within parentheses, assume each item is a feature value pair => $surfboard-height: (min-height 1000px) (orientation portrait);
+  *
+*/
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -3571,6 +3710,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   content: "\e160";
 }
 
+.btn, .btn-yellow, .btn-blue {
+  height: 40px;
+  line-height: 40px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.btn:hover, .btn-yellow:hover, .btn-blue:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+
+.btn-yellow {
+  background-color: #ffd519;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-blue {
+  background-color: #b8d0d9;
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .left {
   float: left;
 }
@@ -3671,11 +3836,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-variant: small-caps;
 }
 
-.text-uppercase {
+.text-uppercase, .btn, .btn-yellow, .btn-blue {
   text-transform: uppercase;
 }
 
-.text-center {
+.text-center, .btn, .btn-yellow, .btn-blue {
   text-align: center;
 }
 
@@ -3799,11 +3964,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-variant: small-caps;
 }
 
-.text-uppercase {
+.text-uppercase, .btn, .btn-yellow, .btn-blue {
   text-transform: uppercase;
 }
 
-.text-center {
+.text-center, .btn, .btn-yellow, .btn-blue {
   text-align: center;
 }
 
