@@ -9,8 +9,13 @@ before_script:
   - npm install -g gulp
   - npm install
   - npm install -g bower
-  - bower install
+  - gulp init_test
+  - gulp unit_test
 
 script:
-  - gulp tests
-  - gulp bower
+  - gulp sass
+  - bower install
+
+after_script:
+  - gulp init_test
+  - gulp unit_test
