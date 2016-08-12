@@ -54,7 +54,7 @@ gulp.task('on', function () {
     gulp.watch(sassDir+'**/*.scss', ['sass']);
 });
 
-gulp.task('tests', ['init_test','unit_test','sass']);
+gulp.task('tests', ['sass','init_test','unit_test']);
 
 
 /*
