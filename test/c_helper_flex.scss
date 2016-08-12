@@ -1,0 +1,74 @@
+@import "true";
+
+@include test-module('Utilities') {
+
+  @include test('Flex Y alignment [function]') {
+    @include assert('Outputs declare flexbox vertical alignment') {
+      @include input {
+        @each $class-suffix, $compass-value in (
+                top: flex-start, // cross-start margin edge of the items is placed on the cross-start line
+                bottom: flex-end, // cross-end margin edge of the items is placed on the cross-end line
+                middle: center, // items are centered in the cross-axis
+                baseline: baseline, // items are aligned such as their baselines align
+                deform: stretch // stretch to fill the container *** DEFAULT ***
+        ){
+          .flex-y-axis-align-#{$class-suffix}{ content: "@include align-items(#{$compass-value})" }
+        }
+      }
+      @include expect {
+        .flex-y-axis-align-top{ content: "@include align-items(flex-start)"; }
+        .flex-y-axis-align-bottom{ content: "@include align-items(flex-end)"; }
+        .flex-y-axis-align-middle{ content: "@include align-items(center)"; }
+        .flex-y-axis-align-baseline{ content: "@include align-items(baseline)"; }
+        .flex-y-axis-align-deform{ content: "@include align-items(stretch)"; }
+      }
+    }
+  }
+
+  // -----------------------------------
+
+  @include test('Flex Y alignment [function]') {
+    @include assert('Outputs declare flexbox vertical alignment') {
+      @include input {
+        @each $class-suffix, $compass-value in (
+                top: flex-start, // cross-start margin edge of the items is placed on the cross-start line
+                bottom: flex-end, // cross-end margin edge of the items is placed on the cross-end line
+                middle: center, // items are centered in the cross-axis
+                baseline: baseline, // items are aligned such as their baselines align
+                deform: stretch // stretch to fill the container *** DEFAULT ***
+        ){
+          .flex-y-axis-align-#{$class-suffix}{ content: "@include align-items(#{$compass-value})" }
+        }
+      }
+      @include expect {
+        .flex-y-axis-align-top{ content: "@include align-items(flex-start)"; }
+        .flex-y-axis-align-bottom{ content: "@include align-items(flex-end)"; }
+        .flex-y-axis-align-middle{ content: "@include align-items(center)"; }
+        .flex-y-axis-align-baseline{ content: "@include align-items(baseline)"; }
+        .flex-y-axis-align-deform{ content: "@include align-items(stretch)"; }
+      }
+    }
+  }
+
+  // -----------------------------------
+
+  @include test('Flex order [function]') {
+    @include assert('Outputs declare flexbox child order') {
+      @include input {
+        @for $i from 1 through 3 {
+          .flex-item-order-#{$i}{content: "@include order(#{$i})"}
+        }
+      }
+      @include expect {
+        .flex-item-order-1{content: "@include order(1)";}
+        .flex-item-order-2{content: "@include order(2)";}
+        .flex-item-order-3{content: "@include order(3)";}
+      }
+    }
+  }
+}
+
+// Optionally show summary report in CSS and/or the command line:
+// - If you use Mocha, reporting to the command line is automatic.
+// - if you use true-cli, report(terminal) is required for output.
+@include report;

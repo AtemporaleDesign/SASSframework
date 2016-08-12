@@ -1,0 +1,75 @@
+// Layout Module - One column (flex)
+
+// spacing vars
+$padding-base: 20px;
+
+// import dependencies
+@import "compass/css3", "../references/response", "../references/mixin", "../components/helper", "../../dist/css/main.min.css";
+
+main{
+  //layout 1 column (use class '.layout-col-1')
+  section.flex.layout-simple{
+    @extend .flex-col;
+
+    @include breakpoint($xlD) {
+      padding: ($padding-base + 10) ($padding-base+140) ($padding-base + 10) ($padding-base+140);
+    }
+    @include breakpoint($res-4-to-res-5) {
+      padding: ($padding-base + 10) 0 ($padding-base + 10) ($padding-base+20);
+    }
+    @include breakpoint($res-3) {
+      padding: $padding-base;
+    }
+    @include breakpoint($res-1-to-res-2) {
+      padding: $padding-base ($padding-base - 10);
+    }
+  }
+
+  //layout 2 column (use class '.layout-col-2')
+  section.flex.layout-default{
+    @extend .flex-row;
+    @extend .flex-x-axis-distribute-space-between;
+
+    // responsive
+    @include breakpoint($res-1-to-res-2) {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+    }
+
+    // left column
+    .flex.col-left{
+      @include breakpoint($xlD) {
+        padding: ($padding-base + 10) 0 ($padding-base + 10) ($padding-base+140);
+      }
+      @include breakpoint($res-4-to-res-5) {
+        padding: ($padding-base + 10) 0 ($padding-base + 10) ($padding-base+20);
+      }
+      @include breakpoint($res-3) {
+        padding: $padding-base;
+      }
+      @include breakpoint($res-1-to-res-2) {
+        padding: $padding-base ($padding-base - 10);
+      }
+    }
+
+    // column right
+    .flex.col-right{
+      @include breakpoint($xlD) {
+        width: 762px;
+        padding: ($padding-base + 10) ($padding-base+20);
+      }
+      @include breakpoint($res-4-to-res-5) {
+        width: 517px;
+        padding: $padding-base;
+      }
+      @include breakpoint($res-3) {
+        width: 247px;
+        padding: $padding-base;
+      }
+      @include breakpoint($res-1-to-res-2) {
+        width: 100%;
+        padding: $padding-base ($padding-base - 10);
+      }
+    }
+  }
+}

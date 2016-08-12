@@ -1,7 +1,7 @@
 // Component Module - Typography
 
 // Imports responsive var
-@import "../references/response", "helper";
+@import "../references/response", "../references/mixin", "helper";
 
 // Font declarations
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900);
@@ -14,7 +14,7 @@ $size-lineheight-ratio:1.333333;
 // Text format mixins
 @mixin text-simple-format($size){
   font-size:$size;
-  line-height:$size * $size-lineheight-ratio;
+  line-height: round($size * $size-lineheight-ratio);
 }
 @mixin text-custom-format($size,$line-height){
   font-size:$size;
@@ -32,8 +32,8 @@ $title-small-size: $text-size-base + 4; // title small
 $K-subtitle: 0.8; // any subtitle // verify
 
 @mixin calc-subtitle($var){
-  font-size:$var * $K-subtitle;
-  line-height:$var * $size-lineheight-ratio * $K-subtitle;
+  font-size:round($var * $K-subtitle);
+  line-height:round($var * $size-lineheight-ratio * $K-subtitle);
 }
 
 /*

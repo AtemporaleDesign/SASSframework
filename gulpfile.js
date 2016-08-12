@@ -12,18 +12,6 @@ var gulp = require('gulp'),
     bower = require('gulp-bower'),
     plugins = require('gulp-load-plugins')();
 
-// compose gulp file and tests project structure
-gulp.task('verify_init', require('./test/structure')(gulp, plugins));
-
-// unit sass test
-gulp.task('tests', function() {
-    gulp.src('test/unit.js', {read: false})
-        // gulp-mocha needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'nyan'}));
-});
-
-
-
 
 // System var path
 var sassDir           = './sass/',
@@ -46,14 +34,11 @@ gulp.task('sass', function () {
             sass: sassDir,
             image: imgDir
         }))
-        /*.pipe(sassLint())
-        .pipe(sassLint.format())
-        .pipe(sassLint.failOnError())*/
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['last 100 versions'],
             cascade: false
         }))
-        //.pipe(notify({ message: 'SASS compiled <%= file.relative %>' }))
+        .pipe(gulp.dest(tempMapDir))
         .pipe(rename({ suffix: '.min' }))
         .pipe(cssnano())
         .pipe(gulp.dest(cssDir))
@@ -72,6 +57,7 @@ gulp.task('testing', function () {
     gulp.watch(['test/*',sassDir+'**/*.scss'], ['verify_init','tests','sass']);
 });
 
+
 /*
  |--------------------------------------------------------------------------
  | Bower update plugins task
@@ -79,4 +65,20 @@ gulp.task('testing', function () {
  */
 gulp.task('bower', function() {
     return bower({directory:bowerDir, cmd:'update'})
+});
+
+
+/*
+ |--------------------------------------------------------------------------
+ | Tests task
+ |--------------------------------------------------------------------------
+ */
+// compose gulp file and tests project structure
+gulp.task('verify_init', require('./test/structure')(gulp, plugins));
+
+// unit sass test
+gulp.task('tests', function() {
+    gulp.src('test/unit.js', {read: false})
+        // gulp-mocha needs filepaths so you can't have any plugins before it
+        .pipe(mocha({reporter: 'nyan'}));
 });

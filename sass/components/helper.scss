@@ -1,30 +1,7 @@
 // Component Module - Helper
 
-// Define dimention
-@mixin size($width,$height){
-  height: $height; width: $width;
-}
-
-// Define circle radius
-@mixin circle($radius){
-  width: $radius;
-  height: $radius;
-  border-radius: $radius/2;
-}
-
-// Center on X axe (require any value for "position")
-@mixin X-centered($width){
-  width: $width;
-  left: 50%;
-  margin-left: -($width/2);
-}
-
-// Center on Y axe (require any value for "position")
-@mixin Y-centered($height){
-  height:$height;
-  top:50%;
-  margin-top: -($height/2);
-}
+// import dependencies
+@import "compass/css3", "../references/response", "../references/mixin";
 
 // Floating status
 .left{float:left;}
@@ -67,3 +44,49 @@
 .text-left{text-align: left;}
 .text-right{text-align: right;}
 .text-justify{text-align: justify;}
+
+// Flexbox
+.flex{ @include flex; } // declare flexbox container
+
+// declare flexbox container direction
+.flex-row{  @include flex-direction(row);  @include flex-wrap(wrap);}
+.flex-col{  @include flex-direction(column); }
+
+// declare flexbox horizontal distribution
+@each $class-suffix, $compass-value in (
+        left: flex-start, // items are packed toward the start line *** DEFAULT ***
+        right: flex-end, // items are packed toward to end line
+        center: center, // items are centered along the line
+        space-between: space-between, // items are evenly distributed in the line; first item is on the start line, last item on the end line
+        space-around: space-around // items are evenly distributed in the line with equal space around them
+){
+  .flex-x-axis-distribute-#{$class-suffix}{ @include justify-content($compass-value); }
+}
+
+// declare flexbox vertical distribution
+@each $class-suffix, $compass-value in (
+        top: flex-start, // lines packed to the start of the container
+        bottom: flex-end, // lines packed to the end of the container
+        middle: center, // lines packed to the center of the container
+        deform: stretch, // lines stretch to take up the remaining space *** DEFAULT ***
+        space-between: space-between, // lines evenly distributed; the first line is at the start of the container while the last one is at the end
+        space-around: space-around // lines evenly distributed with equal space around each line
+){
+  .flex-y-axis-distribute-#{$class-suffix}{ @include align-content($compass-value); }
+}
+
+// declare flexbox vertical alignment
+@each $class-suffix, $compass-value in (
+        top: flex-start, // cross-start margin edge of the items is placed on the cross-start line
+        bottom: flex-end, // cross-end margin edge of the items is placed on the cross-end line
+        middle: center, // items are centered in the cross-axis
+        baseline: baseline, // items are aligned such as their baselines align
+        deform: stretch // stretch to fill the container *** DEFAULT ***
+){
+  .flex-y-axis-align-#{$class-suffix}{ @include align-items($compass-value); }
+}
+
+// declare flexbox child order
+@for $i from 1 through 10 {
+  .flex-item-order-#{$i}{@include order($i); }
+}

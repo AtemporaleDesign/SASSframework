@@ -1,0 +1,33 @@
+@import "true";
+
+// Center on X axe (require any value for "position")
+@mixin X-centered($width){width:$width;left:50%;margin-left:-($width/2);}
+// Center on Y axe (require any value for "position")
+@mixin Y-centered($height){height:$height;top:50%;margin-top:-($height/2);}
+
+
+@include test-module('Utilities') {
+
+  @include test('Center [function]') {
+    @include assert('Outputs a font size and line height based on keyword.') {
+      @include input {
+        @include X-centered(100px);
+        @include Y-centered(50px);
+      }
+      @include expect {
+        width: 100px;
+        left:50%;
+        margin-left: -50px;
+        height: 50px;
+        top:50%;
+        margin-top: -25px;
+
+      }
+    }
+  }
+}
+
+// Optionally show summary report in CSS and/or the command line:
+// - If you use Mocha, reporting to the command line is automatic.
+// - if you use true-cli, report(terminal) is required for output.
+@include report;

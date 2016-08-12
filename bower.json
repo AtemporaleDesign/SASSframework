@@ -13,6 +13,7 @@
     "breakpoint-sass": "^2.7.0",
     "bower-compass-core": "^1.0.2",
     "sass-bootstrap-glyphicons": "^1.0.0",
-    "font-awesome": "Font-Awesome#^4.6.3"
+    "font-awesome": "Font-Awesome#^4.6.3",
+    "flexibility": "^2.0.1"
   }
 }
