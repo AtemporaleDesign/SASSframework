@@ -53,9 +53,8 @@ gulp.task('sass', function () {
 gulp.task('on', function () {
     gulp.watch(sassDir+'**/*.scss', ['sass']);
 });
-gulp.task('testing', function () {
-    gulp.watch(['test/*',sassDir+'**/*.scss'], ['verify_init','tests','sass']);
-});
+
+gulp.task('tests', ['init_test','unit_test','sass']);
 
 
 /*
@@ -74,10 +73,10 @@ gulp.task('bower', function() {
  |--------------------------------------------------------------------------
  */
 // compose gulp file and tests project structure
-gulp.task('verify_init', require('./test/structure')(gulp, plugins));
+gulp.task('init_test', require('./test/structure')(gulp, plugins));
 
 // unit sass test
-gulp.task('tests', function() {
+gulp.task('unit_test', function() {
     gulp.src('test/unit.js', {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({reporter: 'nyan'}));
