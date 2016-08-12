@@ -1,10 +1,7 @@
 // Component Module - Shortcodes
 
 // Imports component dependencies
-@import "helper", "../references/color", "../references/response", "../references/mixin", "compass/css3", "../../vendor/breakpoint-sass/stylesheets/breakpoint";
-
-// Icons imports
-@import "../vendor/font-awesome/scss/font-awesome", "../vendor/sass-bootstrap-glyphicons/scss/bootstrap-glyphicons";
+@import "helper", "../references/color", "../references/response", "../references/mixin", "compass/css3", "../../vendor/breakpoint-sass/stylesheets/breakpoint", "../vendor/font-awesome/scss/font-awesome", "../vendor/sass-bootstrap-glyphicons/scss/bootstrap-glyphicons";
 
 // Button
 .btn{

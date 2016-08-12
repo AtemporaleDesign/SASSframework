@@ -1,7 +1,7 @@
 // Component Module - Helper
 
 // import dependencies
-@import "compass/css3", "../references/response", "../references/mixin";
+@import "compass/css3", "../references/response";
 
 // Floating status
 .left{float:left;}
@@ -46,6 +46,12 @@
 .text-justify{text-align: justify;}
 
 // Flexbox
+// use crossbrowser flex
+@mixin flex{
+  -js-display: flex; // for IE compatibility
+  @include display-flex;
+}
+
 .flex{ @include flex; } // declare flexbox container
 
 // declare flexbox container direction
